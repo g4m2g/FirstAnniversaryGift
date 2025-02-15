@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Counter 💖</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffebee;
+            color: #d32f2f;
+            margin-top: 50px;
+        }
+        h1 {
+            font-size: 30px;
+        }
+        #counter {
+            font-size: 50px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        #loveButton {
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #loveButton:hover {
+            background-color: #e91e63;
+        }
+        #loveButton:active {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>💖 Love Counter 💖</h1>
+    <p>How much love we have:</p>
+    
+    <div id="counter">0</div>
+    
+    <button id="loveButton">Give More Love ❤️</button>
+
+    <script>
+        // Get the saved love count from localStorage (or start from 0)
+        let loveCount = localStorage.getItem("loveCounter") ? parseInt(localStorage.getItem("loveCounter")) : 0;
+
+        // Update the displayed counter
+        document.getElementById("counter").innerText = loveCount;
+
+        // When the button is clicked, increase the counter and save it
+        document.getElementById("loveButton").addEventListener("click", function() {
+            loveCount++;
+            document.getElementById("counter").innerText = loveCount;
+            localStorage.setItem("loveCounter", loveCount); // Save to localStorage
+        });
+    </script>
+
+</body>
+</html>
